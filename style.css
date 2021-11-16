@@ -1,0 +1,296 @@
+/************************* GENRIC STYLING *********************************/
+body{
+    margin:0;
+    overflow:hidden;
+    font-size: 40;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* .container {
+    height:100vh;
+} */
+
+/************************** TITLE BAR **************************************/
+.title-bar{
+    /* height:5vh; */
+    height: 2.5rem;
+    background-color:#107c41;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/************************** MENU BAR **************************************/
+.menu-bar{
+    /* height:5vh; */
+    height: 2.5rem;
+    background-color:#107c41;
+    display: flex;
+}
+
+.menu-item.selected{
+    background-color: #fff;
+    color:#107c41;
+}
+
+.menu-item:hover{
+    background-color: #107c41;
+    cursor: pointer;
+}
+
+.menu-item.selected:hover{
+    background-color: #fff;
+    cursor: default;
+}
+
+
+.menu-item{
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    font-size: 18;
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon-bar{
+    /* height:6vh; */
+    height:2.8rem;
+    background-color: rgb(241,241,241);
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.menu-icon:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.selector{
+    height:30px;
+    font-size: 18px;
+}
+
+.font-family-selector{
+ 
+    width: 150px;
+}
+
+.selector options{
+    font-size: 18px ;
+}
+
+/************************ FORMULA BAR *******************************************/
+.formula-bar{
+    /* height:5vh;   */
+    height: 2.5rem;
+    display:flex;
+    align-items: center;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    background-color: rgb(241,241,241);
+}
+
+.formula-bar img{
+    display: inline-block;
+    height: 60%;
+    margin-right:0.5rem;
+    margin-left:0.5rem;
+}
+/************************* CELLS CONTAINER ***************************************/
+.data-container{
+    /* height:75vh; */
+    height:calc(100vh - ( 2.5rem + 2.5rem + 2.8rem + 2.5rem + 2rem) );
+    display: flex;
+    flex-wrap: wrap;
+    overflow:scroll; 
+    position: relative;
+}
+
+.select-all{
+    /* width: 30px; */
+    /* height: 30px; */
+    height: 2rem;
+    width: 2rem;
+    border:1px solid lightgray;
+    background-color: gray;
+    position: fixed;
+    z-index: 5;
+}
+
+.column-name-container{
+    /* width:calc(100vw - 30px); */
+    /* height:30px; */
+    height: 2rem;
+    border: 1px solid lightgray;
+    display: flex;
+    /* position: relative; */
+    /* top: -2rem;
+    left: 2rem; */
+    /* background-color: lightgray; */
+    background-color: rgb(241,241,241);
+
+    position: sticky;
+    top: 0px;
+    left: 2rem;
+    z-index: 3;
+}
+
+.row-name-container{
+    /* width:30px; */
+    width: 2rem;
+    /* height:calc(75vh - 30px); */
+    border: 1px solid lightgray;
+    /* position: relative; */
+    /* top: -2rem; */
+    /* overflow: hidden; */
+    /* background-color: lightgray; */
+    background-color: rgb(241,241,241);
+
+    position: sticky;
+    top: 2rem;
+    left: 0rem;
+    z-index: 3;
+}
+
+.input-cell-container{
+    /* width:calc(100vw - 30px); */
+    /* height:calc( 75vh - 30px); */
+    border: 1px solid lightgray;
+    /* position: relative; */
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}
+
+
+.sheet-bar{
+    /* height:4vh; */
+    height:2rem;
+    display: flex;
+    align-items: center;
+}
+
+.scroller{
+    width:70px;
+}
+
+.icon-left-scroll , .icon-right-scroll{
+    font-size: 30px;
+}
+
+.icon-left-scroll:hover , .icon-right-scroll:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.icon-add{
+    color: #107c41;
+    width:40px;
+}
+
+.icon-add:hover{
+    color: #107c41;
+    width:40px;
+    transform: scale(1.2);
+}
+
+.sheet-tab-container{
+    border: 1px solid lightgray;
+    width:calc(100vw - 110px);
+    display: flex;
+    align-content: space-around;
+    overflow:hidden;
+}
+
+.sheet-tab{
+    border-bottom: 4px solid #107c41;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    min-width: 80px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border-right: 1px solid lightgray;
+}
+
+.sheet-tab:hover{
+    cursor: default;
+}
+
+.column-name{
+    min-width:100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid lightgray;
+    font-weight: "bold";
+}
+
+.row-name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:25px;
+    border-bottom: 1px solid lightgray;
+}
+
+.cell-row{
+    display: flex;
+}
+
+.input-cell{
+    min-width:100px;
+    min-height:25px;
+    border-right: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    outline-color:  #107c41;
+}
+
+.input-cell.selected{
+    border: 2px solid #107c41;
+}
+
+.formula-editor{
+    height: 70%;
+    border:1px solid lightgray;
+    background-color: #fff;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    display: flex;
+    align-items: center;
+}
+
+.selected-cell{
+    width: 120px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.function-sign{
+    width:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formula-input{
+    width: calc(100vw - 160px);
+    outline-color:  #107c41;
+}
+
+.menu-icon.selected{
+    background-color: lightgray;
+}
