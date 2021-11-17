@@ -12,7 +12,7 @@ fontSizeInput.addEventListener("change", function () {
         (`.input-cell[rId='${ridcidObj.rid}'][cId='${ridcidObj.cid}']`);
     // change fontSize property
     tobeChangedCell.style.fontSize = fontSize+"px";
-
+    // console.log(ridcidObj.rid + " " + ridcidObj.cid);
     db[ridcidObj.rid][ridcidObj.cid].fontSize = fontSize;
 })
 // select -> fontFamily

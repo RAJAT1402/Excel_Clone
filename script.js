@@ -42,7 +42,8 @@ let formulaInput = document.querySelector(".formula-input");
         e.target.classList.add("selected");
         let rid = e.target.getAttribute("rId");
         let cid = e.target.getAttribute("cId");
-
+        rid = parseInt(rid) + 1;
+        cid = parseInt(cid) + 1;
         let ans = "";
             let n = cid;
             while (n > 0) {
@@ -108,8 +109,15 @@ let formulaInput = document.querySelector(".formula-input");
         // A-Z, 1-100
         // B
         let AsciiValue = address.charCodeAt(0);
-        let cid = AsciiValue - 65 + 1;
-        let rid = Number(address.substring(1));
+        let cid;
+        let rid;
+        if(address.charCodeAt(1) >= 65 && address.charCodeAt(1) <= 90){
+            cid = ( (AsciiValue - 65 + 1) * 26 ) + (address.charCodeAt(1) - 65);
+            rid =  Number(address.substring(2)) - 1;
+        }else{
+            cid = AsciiValue - 65;
+            rid = Number(address.substring(1)) - 1;
+        }
         // console.log(address)
         // console.log(cid + " " + rid);
         return {

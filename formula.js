@@ -1,5 +1,5 @@
 let AllGridCells = document.querySelectorAll(".input-cell");
-
+// console.log(AllGridCells.length)
 // cell -> formula remove / value set
 for (let i = 0; i < AllGridCells.length; i++) {
     AllGridCells[i].addEventListener("blur", function () {
@@ -8,10 +8,10 @@ for (let i = 0; i < AllGridCells.length; i++) {
         let {rid, cid} = getRidCidFromAddress(address);
         let cellObject = db[rid][cid];
         // console.log(content)
-            // if(cellObject.formula){
-            //     removeFormula(address, cellObject.formula);
-            //     cellObject.formula = "";
-            // }
+            if(cellObject.formula){
+                removeFormula(address, cellObject.formula);
+                cellObject.formula = "";
+            }
         setUI(content, rid, cid)
     })
 }
@@ -25,9 +25,9 @@ formulaInput.addEventListener("keydown", function(e){
         let address = selectedCell.innerText;
         let {rid, cid} = getRidCidFromAddress(address);
         let cellObject = db[rid][cid];
-            // if(cellObject.formula != cFormula){
-            //     removeFormula(address, cellObject.formula)
-            // }
+            if(cellObject.formula != cFormula){
+                removeFormula(address, cellObject.formula)
+            }
 
         let value = evaluateFormula(cFormula);
         // console.log(value)
@@ -66,9 +66,11 @@ function setUI(value, rid, cid) {
     let tobeChangedCell = document.querySelector
         (`.input-cell[rId='${rid}'][cId='${cid}']`);
     tobeChangedCell.textContent = value;
+    // console.log(rid+ " " + cid);
+    // console.log(value);
     db[rid][cid].value=value;
-
-    let childrenArr = db[rid-1][cid-1].children;
+    // console.log(value + " "+ rid + " "+cid);
+    let childrenArr = db[rid][cid].children;
 
     for(let i = 0 ; i < childrenArr.length ; i++){
         let childrenObj = getRidCidFromAddress(childrenArr[i]);
@@ -88,7 +90,7 @@ function setFormula(address, formula){
             // address -> rid cId
             let parentObj = getRidCidFromAddress(formulaEntities[i]);
             // db -> value
-            let children = db[parentObj.rid - 1][parentObj.cid - 1].children;
+            let children = db[parentObj.rid][parentObj.cid].children;
             // console.log(parentObj.rid + " " + parentObj.cid)
             // replace in formula
             children.push(address);
@@ -106,7 +108,7 @@ function removeFormula(address, formula){
 
             let children = db[parentObj.rid][parentObj.cid].children;
             let idx = children.indexOf(address);
-            children.slice(idx, 1);
+            children.splice(idx, 1);
         }
     }
 }

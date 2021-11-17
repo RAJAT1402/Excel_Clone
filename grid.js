@@ -52,14 +52,11 @@ for (let i = 1; i <= 100; i++) {
     //         cells+=row1;
     //     }
     //     inputCellContainer.innerHTML = cells;
-    let sheetDB = [];
-    let db = [];
-
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 0; i < 100; i++) {
         let row = document.createElement("div");
         row.setAttribute("class", "cell-row");
-        let rowArr = [];
-        for (let j = 1; j <= 100; j++) {
+        
+        for (let j = 0; j < 100; j++) {
             let div = document.createElement("div");
             div.setAttribute("class", "input-cell");
             // div.textContent = String.fromCharCode(j+65)+(i+1)  
@@ -69,8 +66,17 @@ for (let i = 1; i <= 100; i++) {
             
             div.setAttribute("rId", i);
             div.setAttribute("cId", j);
-            row.appendChild(div);
+            row.appendChild(div);  
+        }
+        
+        inputCellContainer.appendChild(row)
+    }
 
+    let sheetDB = [];
+    let db = [];
+    for(let i = 0 ; i < 100 ; i++){
+        let rowArr = [];
+        for(let j = 0 ; j < 100 ; j++){
             // creating database
             let cellObj = {
                 color: "black",
@@ -88,5 +94,4 @@ for (let i = 1; i <= 100; i++) {
             rowArr.push(cellObj)
         }
         db.push(rowArr)
-        inputCellContainer.appendChild(row)
     }

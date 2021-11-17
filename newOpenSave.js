@@ -36,16 +36,16 @@ openInput.addEventListener("change", function (e) {
         let JSONdata = JSON.parse(event.target.result);
         db = JSONdata
         // console.log(db);
-        setUI();
+        setUI1();
     });
 })
 
-function setUI() {
-    for (let i = 1; i <= 100; i++) {
+function setUI1() {
+    for (let i = 0; i < 100; i++) {
 
-        for (let j = 1; j <= 100; j++) {
+        for (let j = 0; j < 100; j++) {
             //    set all the properties on ui with matchiing rid,cid
-            let cellObject = db[i-1][j-1];
+            let cellObject = db[i][j];
             let tobeChangedCell = document.querySelector(`.input-cell[rId='${i}'][cId='${j}']`);
             // console.log(cellObject.value);
             // console.log(tobeChangedCell)
