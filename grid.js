@@ -72,26 +72,32 @@ for (let i = 1; i <= 100; i++) {
         inputCellContainer.appendChild(row)
     }
 
-    let sheetDB = [];
-    let db = [];
-    for(let i = 0 ; i < 100 ; i++){
-        let rowArr = [];
-        for(let j = 0 ; j < 100 ; j++){
-            // creating database
-            let cellObj = {
-                color: "black",
-                backgroundColor: "white",
-                fontFamily: "Arial",
-                fontSize: 14,
-                halign: "left",
-                italic: false,
-                underline: false,
-                bold: false,
-                value:"",
-                formula: "",
-                children: []
-            }
-            rowArr.push(cellObj)
-        }
-        db.push(rowArr)
-    }
+    // let sheetDB = [];
+    // let db = [];
+
+    // {
+    //     let addSheetBtn = document.querySelector(".icon-add");
+    //     addSheetBtn.click();
+    //     console.log("clicked");
+    // }
+    // for(let i = 0 ; i < 100 ; i++){
+    //     let rowArr = [];
+    //     for(let j = 0 ; j < 100 ; j++){
+    //         // creating database
+    //         let cellObj = {
+    //             color: "black",
+    //             backgroundColor: "white",
+    //             fontFamily: "Arial",
+    //             fontSize: 14,
+    //             halign: "left",
+    //             italic: false,
+    //             underline: false,
+    //             bold: false,
+    //             value:"",
+    //             formula: "",
+    //             children: []
+    //         }
+    //         rowArr.push(cellObj)
+    //     }
+    //     db.push(rowArr)
+    // }

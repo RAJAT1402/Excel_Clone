@@ -8,10 +8,12 @@ for (let i = 0; i < AllGridCells.length; i++) {
         let {rid, cid} = getRidCidFromAddress(address);
         let cellObject = db[rid][cid];
         // console.log(content)
+        if(content != cellObject.value){
             if(cellObject.formula){
                 removeFormula(address, cellObject.formula);
                 cellObject.formula = "";
             }
+        }
         setUI(content, rid, cid)
     })
 }

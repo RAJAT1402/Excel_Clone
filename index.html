@@ -22,9 +22,6 @@
             <div class="material-icons menu-icon icon-cut">content_cut</div> 
             <div class="material-icons menu-icon icon-copy">content_copy</div> 
             <div class="material-icons menu-icon icon-paste">content_paste</div> 
-            <!-- <div class="material-icons menu-icon icon-open">file_open</div> 
-            <div class="material-icons menu-icon icon-new">mail</div> 
-            <div class="material-icons menu-icon icon-save">save</div> -->
             <input type="file" name="" style="display: none" multiple class="open_input"> 
             <select class="selector font-family-selector">
                 <option style="font-family: Arial;" value="Arial">Arial</option>
@@ -39,11 +36,11 @@
                 <option style="font-family: Open Sans" value="Open Sans">Open Sans</option>
                 <option style="font-family: Palatino" value="Palatino">Palatino</option>
                 <option style="font-family: Verdana" value="Verdana">Verdana</option>
-
+                
             </select>
             <select class="selector font-size-selector">
-                <!-- <option value="10">10</option> -->
-                <!-- <option value="12">12</option> -->
+                <option value="10">10</option>
+                <option value="12">12</option>
                 <option value="14">14</option>
                 <option value="16">16</option>
                 <option value="18">18</option>
@@ -64,10 +61,13 @@
             <input type="color" class="background_color" style="display:none">
             <div class="material-icons menu-icon icon-color-text">format_color_text</div> 
             <input type="color" class="text_color" style="display: none">
-
+            
             <div class="material-icons menu-icon icon-upload">cloud_upload</div> 
             <div class="material-icons menu-icon icon-download">cloud_download</div> 
-
+            <div class="material-icons menu-icon icon-open">file_open</div> 
+            <!-- <div class="material-icons menu-icon icon-save">save</div> -->
+            <!-- <div class="material-icons menu-icon icon-new">mail</div>   -->
+            
         </div>
         <div class="formula-bar">
             <!-- <input type="text" class="formula-editor selected-cell"> -->
@@ -105,13 +105,13 @@
             </div>
             <div class="material-icons icon-add">add_circle</div>
             <div class="sheet-tab-container">
-                <div class="sheet-tab" id = "0">Sheet-1</div>
+                <!-- <div class="sheet-tab" id = "0">Sheet-1</div> -->
             </div>
         </div>
     </div>
 
     <script src="grid.js"></script>
-    <!-- <script src="sheetsHandling.js"></script> -->
+    <script src="sheetsHandling.js"></script>
     <script src="script.js"></script>
     <script src="menu.js"></script>
     <script src="newOpenSave.js"></script>

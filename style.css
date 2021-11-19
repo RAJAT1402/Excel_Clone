@@ -199,6 +199,7 @@ body{
 }
 
 .icon-add:hover{
+    cursor: default;
     color: #107c41;
     width:40px;
     transform: scale(1.2);

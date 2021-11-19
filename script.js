@@ -17,7 +17,14 @@ let fontSizeInput = document.querySelector(".font-size-selector");
 let formulaInput = document.querySelector(".formula-input");
 
 
+let sheetDB = [];
+    let db = [];
 
+    {
+        let addSheetBtn = document.querySelector(".icon-add");
+        addSheetBtn.click();
+        // console.log("clicked");
+    }
 // {
 //     let addSheetBtn = document.querySelector(".icon-add");
 //     addSheetBtn.click();

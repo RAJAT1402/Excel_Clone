@@ -1,13 +1,14 @@
 let downloadBtn = document.querySelector(".icon-download");
 let openBtn = document.querySelector(".icon-upload");
 let openInput = document.querySelector(".open_input");
+let newInput = document.querySelector(".icon-open");
 
 downloadBtn.addEventListener("click", function (e) {
 
     // anchor create
     let a = document.createElement("a");
     // file put -> db array 
-    var StringCode = encodeURIComponent(JSON.stringify(db));
+    var StringCode = encodeURIComponent(JSON.stringify(sheetDB));
     var dataStr = "data:text/json;charset=utf-8," +
         StringCode;
     a.href = dataStr;
@@ -34,10 +35,26 @@ openInput.addEventListener("change", function (e) {
     reader.addEventListener('load', (event) => {
         // img.src = event.target.result;
         let JSONdata = JSON.parse(event.target.result);
-        db = JSONdata
+        sheetDB = JSONdata
+        db = sheetDB[0]
         // console.log(db);
         setUI1();
+        for(let i = 0 ; i < sheetDB.length - 1 ; i++){
+            sheetOpenHandler();
+        }
     });
+})
+
+newInput.addEventListener("click", () => {
+    // // Set db to empty
+    // db = [];
+
+    // // Set initial Entries
+    // createSheetDB();
+
+    // // ui -> map according to new db
+    // setUI1();
+    location.reload()
 })
 
 function setUI1() {
