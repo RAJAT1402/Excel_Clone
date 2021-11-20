@@ -18,7 +18,12 @@
             <div class="menu-layout menu-item">layout</div>
             <div class="menu-help menu-item">help</div>
         </div>
-        <div class="menu-icon-bar">
+        <div id="file" class="menu-icon-bar" style="display:none">
+            <div class="material-icons menu-icon icon-open">file_open</div> 
+            <div class="material-icons menu-icon icon-upload">cloud_upload</div> 
+            <div class="material-icons menu-icon icon-download">cloud_download</div> 
+        </div>
+        <div id ="home" class="menu-icon-bar">
             <div class="material-icons menu-icon icon-cut">content_cut</div> 
             <div class="material-icons menu-icon icon-copy">content_copy</div> 
             <div class="material-icons menu-icon icon-paste">content_paste</div> 
@@ -35,8 +40,7 @@
                 <option style="font-family: Lato" value="Lato">Lato</option>
                 <option style="font-family: Open Sans" value="Open Sans">Open Sans</option>
                 <option style="font-family: Palatino" value="Palatino">Palatino</option>
-                <option style="font-family: Verdana" value="Verdana">Verdana</option>
-                
+                <option style="font-family: Verdana" value="Verdana">Verdana</option> 
             </select>
             <select class="selector font-size-selector">
                 <option value="10">10</option>
@@ -56,23 +60,19 @@
             <div class="material-icons menu-icon icon-align-left align-icon selected">format_align_left</div> 
             <div class="material-icons menu-icon icon-align-center align-icon">format_align_center</div> 
             <div class="material-icons menu-icon icon-align-right align-icon">format_align_right</div> 
-            <!-- <div class="material-icons menu-icon icon-align-justify align-icon">format_align_justify</div>  -->
             <div class="material-icons menu-icon icon-color-fill">format_color_fill</div> 
             <input type="color" class="background_color" style="display:none">
             <div class="material-icons menu-icon icon-color-text">format_color_text</div> 
             <input type="color" class="text_color" style="display: none">
             
-            <div class="material-icons menu-icon icon-upload">cloud_upload</div> 
+            <!-- <div class="material-icons menu-icon icon-upload">cloud_upload</div> 
             <div class="material-icons menu-icon icon-download">cloud_download</div> 
-            <div class="material-icons menu-icon icon-open">file_open</div> 
-            <!-- <div class="material-icons menu-icon icon-save">save</div> -->
-            <!-- <div class="material-icons menu-icon icon-new">mail</div>   -->
+            <div class="material-icons menu-icon icon-open">file_open</div>  -->
             
         </div>
         <div class="formula-bar">
             <!-- <input type="text" class="formula-editor selected-cell"> -->
             <div class="formula-editor selected-cell"></div>
-            <!-- <div class="function-sign"></div> -->
             <img src="fxSymbol.png" alt="">
             <input type="text" class="formula-editor formula-input" placeholder="Formula Bar">
         </div>
@@ -116,6 +116,7 @@
     <script src="menu.js"></script>
     <script src="newOpenSave.js"></script>
     <script src="formula.js"></script>
+    <script src="cutCopyPaste.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>

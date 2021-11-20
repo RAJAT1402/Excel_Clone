@@ -13,8 +13,10 @@ downloadBtn.addEventListener("click", function (e) {
         StringCode;
     a.href = dataStr;
     a.download = "file.json";
-    // // anchor click
+    // anchor click
     a.click();
+
+    // Excel download but dont work with styling
     // styling -> pass
     // var ws = XLSX.utils.json_to_sheet(db);
     // var wb = XLSX.utils.book_new();
@@ -54,6 +56,9 @@ newInput.addEventListener("click", () => {
 
     // // ui -> map according to new db
     // setUI1();
+
+    let response = confirm("All sheets will be deleted permanently, Are you sure ?")
+    if(response == false) return;
     location.reload()
 })
 

@@ -1,5 +1,5 @@
 let AllGridCells = document.querySelectorAll(".input-cell");
-// console.log(AllGridCells.length)
+
 // cell -> formula remove / value set
 for (let i = 0; i < AllGridCells.length; i++) {
     AllGridCells[i].addEventListener("blur", function () {
@@ -7,7 +7,7 @@ for (let i = 0; i < AllGridCells.length; i++) {
         let address = selectedCell.innerText;
         let {rid, cid} = getRidCidFromAddress(address);
         let cellObject = db[rid][cid];
-        // console.log(content)
+        
         if(content != cellObject.value){
             if(cellObject.formula){
                 removeFormula(address, cellObject.formula);
@@ -32,7 +32,6 @@ formulaInput.addEventListener("keydown", function(e){
             }
 
         let value = evaluateFormula(cFormula);
-        // console.log(value)
 
         setUI(value, rid, cid);
         cellObject.formula = cFormula;
@@ -41,10 +40,9 @@ formulaInput.addEventListener("keydown", function(e){
 })
 
 function evaluateFormula(formula){
-    // console.log(formula)
+
     let formulaEntities = formula.split(" ");
     // [(,A1,+,A2,)]
-    // console.log(formulaEntities);
     for (let i = 0; i < formulaEntities.length; i++) {
         let ascii = formulaEntities[i].charCodeAt(0);
         if (ascii >= 65 && ascii <= 90) {
@@ -57,9 +55,8 @@ function evaluateFormula(formula){
             formula = formula.replace(formulaEntities[i], value);
         }
     }
-    // console.log(formula);
+
     // eval -> evaluate-> inbuilt 
-    
     let result = eval(formula); 
     return result;
 }
@@ -68,10 +65,7 @@ function setUI(value, rid, cid) {
     let tobeChangedCell = document.querySelector
         (`.input-cell[rId='${rid}'][cId='${cid}']`);
     tobeChangedCell.textContent = value;
-    // console.log(rid+ " " + cid);
-    // console.log(value);
     db[rid][cid].value=value;
-    // console.log(value + " "+ rid + " "+cid);
     let childrenArr = db[rid][cid].children;
 
     for(let i = 0 ; i < childrenArr.length ; i++){

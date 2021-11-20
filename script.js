@@ -1,7 +1,4 @@
-
-// let inputCellContainer = document.querySelector(".input-cell-container");
 let selectedCell = document.querySelector(".selected-cell");
-
 let fontfamilyInput = document.querySelector(".font-family-selector");
 let bold_icon = document.querySelector(".icon-bold");
 let italic_icon = document.querySelector(".icon-italic");
@@ -19,33 +16,18 @@ let formulaInput = document.querySelector(".formula-input");
 
 let sheetDB = [];
     let db = [];
-
+    // Creating first sheet using javascript
     {
         let addSheetBtn = document.querySelector(".icon-add");
         addSheetBtn.click();
-        // console.log("clicked");
     }
-// {
-//     let addSheetBtn = document.querySelector(".icon-add");
-//     addSheetBtn.click();
-// }
-    // console.log(db)
-    // let input_cell = document.querySelectorAll(".input-cell");
-    // console.log(input_cell);
-    // for(i = 0 ; i < 100 ; i++){
-    //     for(j = 0 ; j < 100 ; j++){
-    //         // console.log(input_cell[i][j]);
-    //         input_cell[i][j].addEventListener("click",myfunction2);
-    //         //  input_cell[i][j].addEventListener("dblclick",myfunction3);
-    //     }
-    // }
     
+    // Function to change cell properties
     inputCellContainer.addEventListener("click",(e) => {
         let element = document.querySelector(".input-cell.selected");
         if(element != null){
             element.classList.remove("selected");
         }
-        //     // (this).classList.add("selected");
         e.target.classList.add("selected");
         let rid = e.target.getAttribute("rId");
         let cid = e.target.getAttribute("cId");
@@ -64,7 +46,6 @@ let sheetDB = [];
                 }
             }
 
-        // selectedCell.value = cid + rid;
         selectedCell.innerText = ans + rid;
 
         let cellObj = getRidCidFromAddress(selectedCell.innerText)
@@ -107,11 +88,10 @@ let sheetDB = [];
     });
     
     let firstCell = document.querySelector(".input-cell");
-    // console.log(firstCell);
     firstCell.click();
     firstCell.focus();
         
-    
+    // Function to return rid and cid from the given address
     function getRidCidFromAddress(address) {
         // A-Z, 1-100
         // B
@@ -125,8 +105,6 @@ let sheetDB = [];
             cid = AsciiValue - 65;
             rid = Number(address.substring(1)) - 1;
         }
-        // console.log(address)
-        // console.log(cid + " " + rid);
         return {
             rid: rid, cid: cid
         }

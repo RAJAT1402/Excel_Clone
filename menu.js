@@ -1,42 +1,61 @@
-// let alignmentContainer = document.querySelector(".align-icon");
-// let justifyAlign = document.querySelector(".icon-align-justify");
+let fileIcon = document.querySelector(".menu-file");
+let homeIcon = document.querySelector(".menu-home");
 
+let fileBar = document.getElementById("file");
+let homeBar = document.getElementById("home");
 
-// change
+// Function for working of file and home buttons
+fileIcon.addEventListener("click", () => {
+    homeIcon.classList.remove("selected");
+    fileIcon.classList.add("selected");
+    homeBar.style.display = "none";
+    fileBar.style.display = "flex";  
+})
+
+homeIcon.addEventListener("click", () => {
+    fileIcon.classList.remove("selected");
+    homeIcon.classList.add("selected");
+    fileBar.style.display = "none";  
+    homeBar.style.display = "flex";
+})
+
+// Function to change font size 
 fontSizeInput.addEventListener("change", function () {
     let fontSize = fontSizeInput.value;
-    // let address = selectedCell.value;
     let address = selectedCell.innerText;
     let ridcidObj = getRidCidFromAddress(address);
     let tobeChangedCell = document.querySelector
         (`.input-cell[rId='${ridcidObj.rid}'][cId='${ridcidObj.cid}']`);
+
     // change fontSize property
     tobeChangedCell.style.fontSize = fontSize+"px";
-    // console.log(ridcidObj.rid + " " + ridcidObj.cid);
+
+    // change in database
     db[ridcidObj.rid][ridcidObj.cid].fontSize = fontSize;
 })
+
 // select -> fontFamily
 fontfamilyInput.addEventListener("change", function () {
     let fontFamily = fontfamilyInput.value;
-    // let address = selectedCell.value;
     let address = selectedCell.innerText;
     let ridcidObj = getRidCidFromAddress(address);
     let tobeChangedCell = document.querySelector
         (`.input-cell[rId='${ridcidObj.rid}'][cId='${ridcidObj.cid}']`);
-    // change fontSize property
+
+    // change fontFamily property
     tobeChangedCell.style.fontFamily = fontFamily;
 
+    // chnage in databse
     db[ridcidObj.rid][ridcidObj.cid].fontFamily = fontFamily;
 })
 
-// console.log(bold_icon);
+
     bold_icon.addEventListener("click",() => {
         bold_icon.classList.toggle("selected");
-
-        // let address = selectedCell.value;
         let address = selectedCell.innerText;
         let ridcidObj = getRidCidFromAddress(address);
         let tobeChangedCell = document.querySelector(`.input-cell[rId='${ridcidObj.rid}'][cId='${ridcidObj.cid}']`);
+
         if(db[ridcidObj.rid][ridcidObj.cid].bold){
             tobeChangedCell.style.fontWeight = "normal";
             db[ridcidObj.rid][ridcidObj.cid].bold = false
@@ -48,12 +67,10 @@ fontfamilyInput.addEventListener("change", function () {
 
     italic_icon.addEventListener("click",() => {
         italic_icon.classList.toggle("selected");
-
-        // let address = selectedCell.value;
         let address = selectedCell.innerText;
         let ridcidObj = getRidCidFromAddress(address);
         let tobeChangedCell = document.querySelector(`.input-cell[rId='${ridcidObj.rid}'][cId='${ridcidObj.cid}']`);
-        // console.log(db[ridcidObj.ridn][ridcidObj.cidn].italic)
+        
         if(db[ridcidObj.rid][ridcidObj.cid].italic){
             tobeChangedCell.style.fontStyle = "normal";
             db[ridcidObj.rid][ridcidObj.cid].italic = false
@@ -65,8 +82,6 @@ fontfamilyInput.addEventListener("change", function () {
 
     underline_icon.addEventListener("click",() => {
         underline_icon.classList.toggle("selected");
-
-        // let address = selectedCell.value;
         let address = selectedCell.innerText;
         let ridcidObj = getRidCidFromAddress(address);
         let tobeChangedCell = document.querySelector(`.input-cell[rId='${ridcidObj.rid}'][cId='${ridcidObj.cid}']`);
@@ -74,23 +89,20 @@ fontfamilyInput.addEventListener("change", function () {
         if(db[ridcidObj.rid][ridcidObj.cid].underline){
             tobeChangedCell.style.textDecoration = "none";
             db[ridcidObj.rid][ridcidObj.cid].underline = false
-            // console.log(tobeChangedCell.style.textDecoration)
         }else{
             tobeChangedCell.style.textDecoration = "underline";
             db[ridcidObj.rid][ridcidObj.cid].underline = true
-            // console.log(tobeChangedCell.style.textDecoration)
         }
     });
     
+    // Function to click on bacground Color input
     backgroundInput.addEventListener("click", function (e) {
         //   dom help hidden click trigger 
         backgroundHInput.click();
-        // console.log("clicked");
     })
 
     backgroundHInput.addEventListener("change", function (e) {
         let color = backgroundHInput.value;
-        // console.log(color);
         let address = selectedCell.innerText;
         let ridcidObj = getRidCidFromAddress(address);
         let tobeChangedCell = document.querySelector(`.input-cell[rId='${ridcidObj.rid}'][cId='${ridcidObj.cid}']`);
@@ -99,32 +111,21 @@ fontfamilyInput.addEventListener("change", function () {
         db[ridcidObj.rid][ridcidObj.cid].color = color;
     })
 
+    // Function to click on text color input
     textColorInput.addEventListener("click", function (e) {
         //dom help hidden click trigger 
         textColorHInput.click();
-        // console.log("clicked");
     })
+
     textColorHInput.addEventListener("change", function (e) {
         let color = textColorHInput.value;
-        // console.log(color);
         let address = selectedCell.innerText;
         let ridcidObj = getRidCidFromAddress(address);
         let tobeChangedCell = document.querySelector(`.input-cell[rId='${ridcidObj.rid}'][cId='${ridcidObj.cid}']`);
         tobeChangedCell.style.color = color;
-        // db me bhi update karta hu
+        // Updating in databse
         db[ridcidObj.rid][ridcidObj.cid].backgroundColor = color;
     })
-
-
-    // let alignIcon = document.querySelectorAll(".align-icon");
-    // alignIcon[0].addEventListener("click",myfunction);
-    // alignIcon[1].addEventListener("click",myfunction);
-    // alignIcon[2].addEventListener("click",myfunction);
-    // function myfunction(){
-    //     let element=document.querySelector(".align-icon.selected");
-    //     element.classList.remove("selected");
-    //     (this).classList.add("selected");
-    // };
 
     leftAlign.addEventListener("click", function () {
         let element=document.querySelector(".align-icon.selected");
