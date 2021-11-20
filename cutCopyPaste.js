@@ -92,7 +92,7 @@ cutBtn.addEventListener("click", (e) => {
             cellProp.halign = "left";
 
             // UI
-            cell.textContent = cellProp1.value;
+            cell.textContent = cellProp.value;
             cell.click();
         }
     }
